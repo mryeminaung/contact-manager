@@ -1,8 +1,17 @@
+import { UserContextProvider } from "./contexts/UserContext";
+import Navbar from "./components/Navbar";
+import AddContact from "./components/tasks/AddContact";
+import ContactList from "./components/contact/ContactList";
+
 const App = () => {
 	return (
-		<div className="flex items-center justify-center h-screen">
-			<h1 className="text-3xl">Contact Manager</h1>
-		</div>
+		<UserContextProvider>
+			<Navbar />
+			<main className="grid lg:grid-cols-2 gap-10 px-5 grid-cols-1">
+				<AddContact />
+				<ContactList />
+			</main>
+		</UserContextProvider>
 	);
 };
 
