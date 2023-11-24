@@ -10,7 +10,7 @@ const ContactApp = () => {
 	return (
 		<>
 			<Navbar />
-			<main className="grid lg:grid-cols-2 gap-10 px-5 grid-cols-1">
+			<main className="container mx-auto grid lg:grid-cols-2 gap-10 px-8 md:px-5 grid-cols-1">
 				{editMode ? <EditContact /> : <AddContact />}
 				<ContactList />
 			</main>

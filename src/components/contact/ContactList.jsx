@@ -6,7 +6,7 @@ const ContactList = () => {
 
 	return (
 		<div className="contact-list">
-			<h2 className="text-3xl font-bold py-5 border-y border-slate-300 mb-3">
+			<h2 className="text-xl md:text-3xl font-bold py-5 border-y border-slate-300 mb-3">
 				Contact Lists
 			</h2>
 			{contacts.length > 0 ? (
@@ -14,7 +14,7 @@ const ContactList = () => {
 					return <ContactCard key={contact.id} contact={contact} />;
 				})
 			) : (
-				<h5 className="font-bold text-center text-2xl mt-5">Nothing to show</h5>
+				<h5 className="font-bold text-center text-xl md:text-2xl mt-5">Nothing to show</h5>
 			)}
 		</div>
 	);
