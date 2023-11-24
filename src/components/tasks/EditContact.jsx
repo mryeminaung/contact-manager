@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserContext } from "../../contexts/UserContext";
 
-const AddContact = () => {
-	const { dispatch } = useUserContext();
+const EditContact = () => {
+	const { contacts, dispatch, setEditMode, editId } = useUserContext();
 	const [user, setUser] = useState({ username: "", email: "" });
+  const editPerson = contacts.find((contact) => contact.id === editId);
 
 	const handleUser = (e) => {
 		const { name, value } = e.target;
 		setUser((preUser) => ({ ...preUser, [name]: value }));
 	};
+
+	useEffect(() => {
+		setUser({ username: editPerson.name, email: editPerson.email });
+	}, [editPerson]);
 
 	return (
 		<form
@@ -16,7 +21,13 @@ const AddContact = () => {
 			onSubmit={(e) => {
 				e.preventDefault();
 				if (user.username && user.email) {
-					dispatch({ type: "addContact", name: user.username, email: user.email });
+					dispatch({
+						type: "editContact",
+						contactId: editId,
+						name: user.username,
+						email: user.email,
+					});
+					setEditMode(false);
 					setUser({ username: "", email: "" });
 				} else {
 					alert("All inputs are required.");
@@ -24,7 +35,7 @@ const AddContact = () => {
 			}}
 		>
 			<h2 className="text-3xl font-bold py-5 border-y border-slate-300 mb-3">
-				Add Contact
+				Edit Contact
 			</h2>
 
 			<label htmlFor="username" className="text-xl font-semibold">
@@ -52,15 +63,27 @@ const AddContact = () => {
 				placeholder="Email"
 				onChange={handleUser}
 			/>
+			<br />
 
-			<button
-				className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
-				type="submit"
-			>
-				Add
-			</button>
+			<div className="flex items-center gap-x-3">
+				<button
+					className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
+					type="button"
+					onClick={() => {
+						setEditMode(false);
+					}}
+				>
+					Cancel
+				</button>
+				<button
+					className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
+					type="submit"
+				>
+					Update
+				</button>
+			</div>
 		</form>
 	);
 };
 
-export default AddContact;
+export default EditContact;

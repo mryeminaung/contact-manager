@@ -2,7 +2,7 @@ import { useUserContext } from "../../contexts/UserContext";
 import avatar from "../../assets/avatar.png";
 
 const ContactCard = ({ contact }) => {
-	const { dispatch } = useUserContext();
+	const { editMode, dispatch, setEditMode, setEditId } = useUserContext();
 
 	return (
 		<>
@@ -16,15 +16,23 @@ const ContactCard = ({ contact }) => {
 				</div>
 				<div className="flex items-center gap-x-3">
 					<button
-						className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
-						onClick={() => {}}
+						className={`${
+							editMode && "disabled:cursor-not-allowed"
+						} font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
+						disabled={editMode}
+						onClick={() => {
+							setEditMode(true);
+							setEditId(contact.id);
+						}}
 					>
 						Edit
 					</button>
 					<button
-						className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
+						className={`font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
 						onClick={() => {
 							dispatch({ type: "deleteContact", contactId: contact.id });
+							setEditMode(false);
+							setEditId("");
 						}}
 					>
 						Delete
