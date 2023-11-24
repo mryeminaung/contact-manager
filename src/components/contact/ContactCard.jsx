@@ -14,11 +14,11 @@ const ContactCard = ({ contact }) => {
 						<p>{contact.email}</p>
 					</div>
 				</div>
-				<div className="flex items-center gap-x-3">
+				<div className="flex w-full justify-end items-center gap-x-3">
 					<button
 						className={`${
-							editMode && "disabled:cursor-not-allowed"
-						} font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
+							editMode && "disabled:cursor-not-allowed disabled:bg-blue-500"
+						} text-sm md:text-base font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
 						disabled={editMode}
 						onClick={() => {
 							setEditMode(true);
@@ -28,7 +28,10 @@ const ContactCard = ({ contact }) => {
 						Edit
 					</button>
 					<button
-						className={`font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
+						className={`${
+							editMode && "disabled:cursor-not-allowed disabled:bg-blue-500"
+						} text-sm md:text-base font-semibold text-white rounded-md bg-blue-600 px-5 py-2`}
+						disabled={editMode}
 						onClick={() => {
 							dispatch({ type: "deleteContact", contactId: contact.id });
 							setEditMode(false);

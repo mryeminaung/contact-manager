@@ -23,11 +23,11 @@ const AddContact = () => {
 				}
 			}}
 		>
-			<h2 className="text-3xl font-bold py-5 border-y border-slate-300 mb-3">
+			<h2 className="text-xl md:text-3xl font-bold py-5 border-y border-slate-300 mb-3">
 				Add Contact
 			</h2>
 
-			<label htmlFor="username" className="text-xl font-semibold">
+			<label htmlFor="username" className="text-base md:text-xl font-semibold">
 				Name
 			</label>
 			<input
@@ -40,7 +40,7 @@ const AddContact = () => {
 				onChange={handleUser}
 			/>
 
-			<label htmlFor="email" className="text-xl font-semibold">
+			<label htmlFor="email" className="text-base md:text-xl font-semibold">
 				Email
 			</label>
 			<input
@@ -54,7 +54,7 @@ const AddContact = () => {
 			/>
 
 			<button
-				className="font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
+				className="text-sm md:text-base font-semibold text-white rounded-md bg-blue-600 px-5 py-2"
 				type="submit"
 			>
 				Add
