@@ -1,8 +1,10 @@
-# React + Vite
+# Contact Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Contact Management App! This application allows you to manage contact information efficiently. You can create, read, edit, and delete contact details. The app is designed to be responsive and work seamlessly across all devices.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Create:** Add new contacts with their details.
+- **Read:** View a list of all contacts along with their information.
+- **Edit:** Modify existing contact details easily.
+- **Delete:** Remove contacts from your list.
